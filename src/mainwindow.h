@@ -84,7 +84,7 @@ private slots:
     void on_actionStop_triggered();
     void on_actionRecord_toggled(bool);
 	void on_processButton_toggled(bool);
-	void on_actionBoard_triggered();
+	//void on_actionBoard_triggered();
 
     void receiveSaveSet(QString, size_t);
 

@@ -82,66 +82,66 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	qRegisterMetaType<QVector<double>>("QVector<double>");
 
-	i_series = new QLineSeries;
-	i_series->setUseOpenGL(true);
-	i_chart = new QChart;
-	i_series->append(0, 0);
-	i_chart->addSeries(i_series);
-	i_chart->createDefaultAxes();
+	//i_series = new QLineSeries;
+	//i_series->setUseOpenGL(true);
+	//i_chart = new QChart;
+	//i_series->append(0, 0);
+	//i_chart->addSeries(i_series);
+	//i_chart->createDefaultAxes();
 
-	i_axisX = new QValueAxis;
-	i_axisX->setRange(0, 40);
-	i_axisX->setGridLineVisible(true);
-	i_axisX->setTickCount(5);     //标记的个数
-	i_axisX->setMinorTickCount(1); //次标记的个数
+	//i_axisX = new QValueAxis;
+	//i_axisX->setRange(0, 40);
+	//i_axisX->setGridLineVisible(true);
+	//i_axisX->setTickCount(5);     //标记的个数
+	//i_axisX->setMinorTickCount(1); //次标记的个数
 
-	i_axisY = new QValueAxis;
-	i_axisY->setRange(50, 300);
-	i_axisY->setGridLineVisible(true);
-	i_axisY->setTickCount(6);
-	//i_axisY->setMinorTickCount(1);
+	//i_axisY = new QValueAxis;
+	//i_axisY->setRange(50, 300);
+	//i_axisY->setGridLineVisible(true);
+	//i_axisY->setTickCount(6);
+	////i_axisY->setMinorTickCount(1);
 
-	i_chart->setAxisX(i_axisX, i_series);
-	i_chart->setAxisY(i_axisY, i_series);
-	i_chart->setTitle("Current");
-	i_chart->legend()->hide();
-	i_chart->setMargins(QMargins(0, 0, 0, 0));
-	i_chart->setTheme(QChart::ChartThemeDark);
+	//i_chart->setAxisX(i_axisX, i_series);
+	//i_chart->setAxisY(i_axisY, i_series);
+	//i_chart->setTitle("Current");
+	//i_chart->legend()->hide();
+	//i_chart->setMargins(QMargins(0, 0, 0, 0));
+	//i_chart->setTheme(QChart::ChartThemeDark);
 
-	v_series = new QLineSeries;
-	v_series->setUseOpenGL(true);
-	v_chart = new QChart;
-	v_series->append(0, 0);
-	v_chart->addSeries(v_series);
-	v_chart->createDefaultAxes();
+	//v_series = new QLineSeries;
+	//v_series->setUseOpenGL(true);
+	//v_chart = new QChart;
+	//v_series->append(0, 0);
+	//v_chart->addSeries(v_series);
+	//v_chart->createDefaultAxes();
 
-	v_axisX = new QValueAxis;
-	v_axisX->setRange(0, 40);
-	v_axisX->setGridLineVisible(true);
-	v_axisX->setTickCount(5);     //标记的个数
-	v_axisX->setMinorTickCount(1); //次标记的个数
+	//v_axisX = new QValueAxis;
+	//v_axisX->setRange(0, 40);
+	//v_axisX->setGridLineVisible(true);
+	//v_axisX->setTickCount(5);     //标记的个数
+	//v_axisX->setMinorTickCount(1); //次标记的个数
 
-	v_axisY = new QValueAxis;
-	v_axisY->setRange(0, 30);
-	v_axisY->setGridLineVisible(true);
-	v_axisY->setTickCount(5);
-	//v_axisY->setMinorTickCount(1);
+	//v_axisY = new QValueAxis;
+	//v_axisY->setRange(0, 30);
+	//v_axisY->setGridLineVisible(true);
+	//v_axisY->setTickCount(5);
+	////v_axisY->setMinorTickCount(1);
 
-	v_chart->setAxisX(v_axisX, v_series);
-	v_chart->setAxisY(v_axisY, v_series);
-	v_chart->setTitle("Voltage");
-	v_chart->legend()->hide();
-	v_chart->setMargins(QMargins(0, 0, 0, 0));
-	v_chart->setTheme(QChart::ChartThemeDark);
+	//v_chart->setAxisX(v_axisX, v_series);
+	//v_chart->setAxisY(v_axisY, v_series);
+	//v_chart->setTitle("Voltage");
+	//v_chart->legend()->hide();
+	//v_chart->setMargins(QMargins(0, 0, 0, 0));
+	//v_chart->setTheme(QChart::ChartThemeDark);
 
-	ui->graphicsView->setChart(i_chart);
-	ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+	//ui->graphicsView->setChart(i_chart);
+	//ui->graphicsView->setRenderHint(QPainter::Antialiasing);
 
-	ui->graphicsView_3->setChart(v_chart);
-	ui->graphicsView_3->setRenderHint(QPainter::Antialiasing);
+	//ui->graphicsView_3->setChart(v_chart);
+	//ui->graphicsView_3->setRenderHint(QPainter::Antialiasing);
 
-	ui->AI_Current->setPalette(Qt::green);
-	ui->AI_Voltage->setPalette(Qt::green);
+	//ui->AI_Current->setPalette(Qt::green);
+	//ui->AI_Voltage->setPalette(Qt::green);
 
 	ImageChannelPtr pImageChannel = std::make_shared<ImageChannel>(REPOSITORY_SIZE);
 	mpImageChannel = std::move(pImageChannel);
@@ -271,13 +271,13 @@ void MainWindow::on_actionStart_triggered()
 		mpProcessThread->StartDisplay();
 	}
 
-	//控制线程开始
-	if (mpControlThread != nullptr && !mpControlThread->IsCollecting())
-	{
-		i_series->clear();
-		v_series->clear();
-		mpControlThread->StartCollect();
-	}
+	////控制线程开始
+	//if (mpControlThread != nullptr && !mpControlThread->IsCollecting())
+	//{
+	//	i_series->clear();
+	//	v_series->clear();
+	//	mpControlThread->StartCollect();
+	//}
 		
 	ui->actionStart->setEnabled(false);
 	ui->actionStop->setEnabled(true);
@@ -292,8 +292,8 @@ void MainWindow::on_actionStop_triggered()
 	
 	mpProcessThread->StopAllTasks();
 	mpCameraThread->StopCapture();
-	if (mpControlThread != nullptr && mpControlThread->IsCollecting())
-		mpControlThread->StopCollect();
+	//if (mpControlThread != nullptr && mpControlThread->IsCollecting())
+	//	mpControlThread->StopCollect();
 
 	ui->actionStart->setEnabled(true);
 	ui->actionStop->setEnabled(false);
@@ -329,21 +329,21 @@ void MainWindow::on_actionRecord_toggled(bool pressed)
 		mpProcessThread->SetSavePath(savePath);
 		mpProcessThread->StartRecord();
 
-		if (mpControlThread != nullptr && mpControlThread->IsCollecting())
-		{
-			mpControlThread->SetSavePath(savePath + ".csv");
-			
-			mpControlThread->StartSaving();
-		}
+		//if (mpControlThread != nullptr && mpControlThread->IsCollecting())
+		//{
+		//	mpControlThread->SetSavePath(savePath + ".csv");
+		//	
+		//	mpControlThread->StartSaving();
+		//}
     }
 	else
 	{
 		mpProcessThread->StopRecord();
-		if (mpControlThread != nullptr && mpControlThread->IsCollecting())
-		{
-			//mpControlThread->StopCollect();
-			mpControlThread->StopSaving();
-		}
+		//if (mpControlThread != nullptr && mpControlThread->IsCollecting())
+		//{
+		//	//mpControlThread->StopCollect();
+		//	mpControlThread->StopSaving();
+		//}
 	}
 	ui->actionRecord->setChecked(pressed);
     ui->actionSetSavePath->setEnabled(!pressed);
@@ -379,22 +379,22 @@ void MainWindow::on_processButton_toggled(bool pressed)
 	ui->processButton->setChecked(pressed);
 }
 
-void MainWindow::on_actionBoard_triggered()
-{
-	mpControlThread = new ControlThread();
-	int rtn = mpControlThread->Initialize();
-	if (rtn != 0)
-	{
-		QMessageBox::warning(this, tr("Warning"), tr("Cannot connect to data acquisition board!"), QMessageBox::Ok);
-		return;
-	}
-	else
-	{
-		QMessageBox::information(this, tr("Information"), mpControlThread->GetDeviceName()+tr(" is connected!"), QMessageBox::Ok);
-	}
-	connect(mpControlThread, SIGNAL(SendAnalogData(QVector<double>)), this, SLOT(ReceiveAnalogData(QVector<double>)));
-	connect(mpControlThread, SIGNAL(SendFinishSignal()), this, SLOT(ReceiveFinishSignal()));
-}
+//void MainWindow::on_actionBoard_triggered()
+//{
+//	mpControlThread = new ControlThread();
+//	int rtn = mpControlThread->Initialize();
+//	if (rtn != 0)
+//	{
+//		QMessageBox::warning(this, tr("Warning"), tr("Cannot connect to data acquisition board!"), QMessageBox::Ok);
+//		return;
+//	}
+//	else
+//	{
+//		QMessageBox::information(this, tr("Information"), mpControlThread->GetDeviceName()+tr(" is connected!"), QMessageBox::Ok);
+//	}
+//	connect(mpControlThread, SIGNAL(SendAnalogData(QVector<double>)), this, SLOT(ReceiveAnalogData(QVector<double>)));
+//	connect(mpControlThread, SIGNAL(SendFinishSignal()), this, SLOT(ReceiveFinishSignal()));
+//}
 
 void MainWindow::ReceiveFinishSignal()
 {
@@ -403,49 +403,49 @@ void MainWindow::ReceiveFinishSignal()
 
 void MainWindow::ReceiveAnalogData(QVector<double> analogData)
 {
-	int iCurrent = static_cast<int>(analogData[0] * 219);
-	int iVoltage = static_cast<int>(analogData[1] * 21);
-	double t = analogData[2];
-	ui->AI_Current->display(iCurrent);
-	ui->AI_Voltage->display(iVoltage);
-	i_series->append(t, iCurrent);
-	v_series->append(t, iVoltage);
+	//int iCurrent = static_cast<int>(analogData[0] * 219);
+	//int iVoltage = static_cast<int>(analogData[1] * 21);
+	//double t = analogData[2];
+	//ui->AI_Current->display(iCurrent);
+	//ui->AI_Voltage->display(iVoltage);
+	//i_series->append(t, iCurrent);
+	//v_series->append(t, iVoltage);
 }
 
 void MainWindow::receiveWidth(double width)
 {
-	ui->widthBar->setValue(width/ratio);
-	ui->widthBar->setFormat(QString::fromLocal8Bit("Width：%1mm").arg(QString::number(width / ratio, 'f', 2)));
-	//电压建议
-	if (width > 100 && width < 170)
-		ui->VoltageBar->setValue(19.5);
-	else if (width < 180)
-		ui->VoltageBar->setValue(18.5);
-	else if (width < 185)
-		ui->VoltageBar->setValue(18);
-	else if (width < 190)
-		ui->VoltageBar->setValue(17.5);
-	else if (width < 200)
-		ui->VoltageBar->setValue(17);
+	//ui->widthBar->setValue(width/ratio);
+	//ui->widthBar->setFormat(QString::fromLocal8Bit("Width：%1mm").arg(QString::number(width / ratio, 'f', 2)));
+	////电压建议
+	//if (width > 100 && width < 170)
+	//	ui->VoltageBar->setValue(19.5);
+	//else if (width < 180)
+	//	ui->VoltageBar->setValue(18.5);
+	//else if (width < 185)
+	//	ui->VoltageBar->setValue(18);
+	//else if (width < 190)
+	//	ui->VoltageBar->setValue(17.5);
+	//else if (width < 200)
+	//	ui->VoltageBar->setValue(17);
 }
 
 void MainWindow::receiveLength(double length)
 {
-	ui->lengthBar->setValue(length/ratio);
-	ui->lengthBar->setFormat(QString::fromLocal8Bit("Length：%1mm").arg(QString::number(length / ratio, 'f', 2)));
-	//电流建议
-	if (length > 100 && length < 240)
-		ui->CurrentBar->setValue(190);
-	else if (length < 250)
-		ui->CurrentBar->setValue(185);
-	else if (length < 255)
-		ui->CurrentBar->setValue(180);
-	else if (length < 280)
-		ui->CurrentBar->setValue(175);
-	else if (length < 290)
-		ui->CurrentBar->setValue(170);
-	else if (length < 300)
-		ui->CurrentBar->setValue(165);
+	//ui->lengthBar->setValue(length/ratio);
+	//ui->lengthBar->setFormat(QString::fromLocal8Bit("Length：%1mm").arg(QString::number(length / ratio, 'f', 2)));
+	////电流建议
+	//if (length > 100 && length < 240)
+	//	ui->CurrentBar->setValue(190);
+	//else if (length < 250)
+	//	ui->CurrentBar->setValue(185);
+	//else if (length < 255)
+	//	ui->CurrentBar->setValue(180);
+	//else if (length < 280)
+	//	ui->CurrentBar->setValue(175);
+	//else if (length < 290)
+	//	ui->CurrentBar->setValue(170);
+	//else if (length < 300)
+	//	ui->CurrentBar->setValue(165);
 }
 
 void MainWindow::ConnectLostHandler()

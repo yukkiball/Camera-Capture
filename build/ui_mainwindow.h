@@ -16,19 +16,16 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "qchartview.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -43,29 +40,10 @@ public:
     QAction *actionUploadParameters;
     QAction *actionSetSavePath;
     QAction *actionCalibrate;
-    QAction *actionBoard;
     QWidget *centralWidget;
     QGridLayout *gridLayout_5;
     QGroupBox *groupBox_3;
-    QGridLayout *gridLayout;
-    QTabWidget *tabWidget;
-    QWidget *parameter_tab;
-    QGridLayout *gridLayout_3;
     QTreeWidget *parameter_tree;
-    QWidget *control_tab;
-    QtCharts::QChartView *graphicsView;
-    QGroupBox *groupBox;
-    QProgressBar *CurrentBar;
-    QProgressBar *VoltageBar;
-    QLabel *label;
-    QLabel *label_6;
-    QWidget *layoutWidget;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *label_4;
-    QLCDNumber *AI_Current;
-    QLabel *label_3;
-    QLCDNumber *AI_Voltage;
-    QtCharts::QChartView *graphicsView_3;
     QGroupBox *groupBox_4;
     QGridLayout *gridLayout_4;
     QHBoxLayout *horizontalLayout;
@@ -121,6 +99,7 @@ public:
         actionStop->setIcon(icon3);
         actionRecord = new QAction(MainWindow);
         actionRecord->setObjectName(QString::fromUtf8("actionRecord"));
+        actionRecord->setCheckable(true);
         actionRecord->setEnabled(false);
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/icons/record.ico"), QSize(), QIcon::Normal, QIcon::Off);
@@ -143,11 +122,6 @@ public:
         QIcon icon7;
         icon7.addFile(QString::fromUtf8(":/icon/resources/calibration.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionCalibrate->setIcon(icon7);
-        actionBoard = new QAction(MainWindow);
-        actionBoard->setObjectName(QString::fromUtf8("actionBoard"));
-        QIcon icon8;
-        icon8.addFile(QString::fromUtf8(":/icons/circuit-board.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionBoard->setIcon(icon8);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout_5 = new QGridLayout(centralWidget);
@@ -163,21 +137,7 @@ public:
         groupBox_3->setSizePolicy(sizePolicy);
         groupBox_3->setMinimumSize(QSize(450, 500));
         groupBox_3->setMaximumSize(QSize(450, 16777215));
-        gridLayout = new QGridLayout(groupBox_3);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        tabWidget = new QTabWidget(groupBox_3);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setMinimumSize(QSize(440, 0));
-        tabWidget->setStyleSheet(QString::fromUtf8("font: 12pt \"Times New Roman\";"));
-        parameter_tab = new QWidget();
-        parameter_tab->setObjectName(QString::fromUtf8("parameter_tab"));
-        gridLayout_3 = new QGridLayout(parameter_tab);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        parameter_tree = new QTreeWidget(parameter_tab);
+        parameter_tree = new QTreeWidget(groupBox_3);
         new QTreeWidgetItem(parameter_tree);
         new QTreeWidgetItem(parameter_tree);
         new QTreeWidgetItem(parameter_tree);
@@ -191,85 +151,18 @@ public:
         new QTreeWidgetItem(__qtreewidgetitem);
         new QTreeWidgetItem(__qtreewidgetitem);
         parameter_tree->setObjectName(QString::fromUtf8("parameter_tree"));
+        parameter_tree->setGeometry(QRect(15, 20, 421, 760));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(parameter_tree->sizePolicy().hasHeightForWidth());
         parameter_tree->setSizePolicy(sizePolicy1);
+        QFont font;
+        font.setFamily(QString::fromUtf8("Times New Roman"));
+        font.setPointSize(12);
+        parameter_tree->setFont(font);
         parameter_tree->setIndentation(5);
         parameter_tree->header()->setStretchLastSection(true);
-
-        gridLayout_3->addWidget(parameter_tree, 0, 0, 1, 1);
-
-        tabWidget->addTab(parameter_tab, QString());
-        control_tab = new QWidget();
-        control_tab->setObjectName(QString::fromUtf8("control_tab"));
-        graphicsView = new QtCharts::QChartView(control_tab);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 100, 411, 221));
-        graphicsView->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        groupBox = new QGroupBox(control_tab);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(10, 620, 411, 121));
-        CurrentBar = new QProgressBar(groupBox);
-        CurrentBar->setObjectName(QString::fromUtf8("CurrentBar"));
-        CurrentBar->setGeometry(QRect(30, 80, 118, 23));
-        CurrentBar->setMinimum(100);
-        CurrentBar->setMaximum(200);
-        CurrentBar->setValue(150);
-        VoltageBar = new QProgressBar(groupBox);
-        VoltageBar->setObjectName(QString::fromUtf8("VoltageBar"));
-        VoltageBar->setGeometry(QRect(240, 80, 118, 23));
-        VoltageBar->setMaximum(25);
-        VoltageBar->setValue(18);
-        label = new QLabel(groupBox);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(50, 40, 72, 31));
-        label_6 = new QLabel(groupBox);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(260, 40, 72, 31));
-        layoutWidget = new QWidget(control_tab);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(-10, 40, 421, 25));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget);
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_4 = new QLabel(layoutWidget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setStyleSheet(QString::fromUtf8("font: 12pt \"Times New Roman\";"));
-        label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_3->addWidget(label_4);
-
-        AI_Current = new QLCDNumber(layoutWidget);
-        AI_Current->setObjectName(QString::fromUtf8("AI_Current"));
-        AI_Current->setSmallDecimalPoint(true);
-
-        horizontalLayout_3->addWidget(AI_Current);
-
-        label_3 = new QLabel(layoutWidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setStyleSheet(QString::fromUtf8("font: 12pt \"Times New Roman\";"));
-        label_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_3->addWidget(label_3);
-
-        AI_Voltage = new QLCDNumber(layoutWidget);
-        AI_Voltage->setObjectName(QString::fromUtf8("AI_Voltage"));
-        AI_Voltage->setSmallDecimalPoint(true);
-
-        horizontalLayout_3->addWidget(AI_Voltage);
-
-        graphicsView_3 = new QtCharts::QChartView(control_tab);
-        graphicsView_3->setObjectName(QString::fromUtf8("graphicsView_3"));
-        graphicsView_3->setGeometry(QRect(10, 360, 411, 221));
-        graphicsView_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        tabWidget->addTab(control_tab, QString());
-
-        gridLayout->addWidget(tabWidget, 0, 0, 1, 1);
-
 
         gridLayout_5->addWidget(groupBox_3, 0, 0, 1, 1);
 
@@ -368,13 +261,13 @@ public:
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         processButton = new QPushButton(groupBox_4);
         processButton->setObjectName(QString::fromUtf8("processButton"));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Times New Roman"));
-        font.setPointSize(12);
-        font.setBold(false);
-        font.setItalic(false);
-        font.setWeight(50);
-        processButton->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Times New Roman"));
+        font1.setPointSize(12);
+        font1.setBold(false);
+        font1.setItalic(false);
+        font1.setWeight(50);
+        processButton->setFont(font1);
         processButton->setCheckable(true);
         processButton->setChecked(false);
 
@@ -439,7 +332,6 @@ public:
         toolBar->setIconSize(QSize(60, 35));
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
-        toolBar->addAction(actionBoard);
         toolBar->addAction(actionConnect);
         toolBar->addAction(actionDisconnect);
         toolBar->addSeparator();
@@ -452,9 +344,6 @@ public:
         toolBar->addSeparator();
 
         retranslateUi(MainWindow);
-
-        tabWidget->setCurrentIndex(0);
-
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -473,7 +362,6 @@ public:
         actionUploadParameters->setText(QApplication::translate("MainWindow", "UploadParameters", nullptr));
         actionSetSavePath->setText(QApplication::translate("MainWindow", "SetSavePath", nullptr));
         actionCalibrate->setText(QApplication::translate("MainWindow", "Calibrate", nullptr));
-        actionBoard->setText(QApplication::translate("MainWindow", "Board", nullptr));
         groupBox_3->setTitle(QString());
         QTreeWidgetItem *___qtreewidgetitem = parameter_tree->headerItem();
         ___qtreewidgetitem->setText(1, QApplication::translate("MainWindow", "Value", nullptr));
@@ -507,15 +395,6 @@ public:
         ___qtreewidgetitem12->setText(0, QApplication::translate("MainWindow", "Threshold", nullptr));
         parameter_tree->setSortingEnabled(__sortingEnabled);
 
-        tabWidget->setTabText(tabWidget->indexOf(parameter_tab), QApplication::translate("MainWindow", "Camera Parameters", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Suggest Parameters", nullptr));
-        CurrentBar->setFormat(QApplication::translate("MainWindow", "%vA", nullptr));
-        VoltageBar->setFormat(QApplication::translate("MainWindow", "%vV", nullptr));
-        label->setText(QApplication::translate("MainWindow", "Current", nullptr));
-        label_6->setText(QApplication::translate("MainWindow", "Voltage", nullptr));
-        label_4->setText(QApplication::translate("MainWindow", "Current", nullptr));
-        label_3->setText(QApplication::translate("MainWindow", "Voltage", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(control_tab), QApplication::translate("MainWindow", "Weld Control", nullptr));
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Monitor Window", nullptr));
         label_2->setText(QString());
         widthBar->setFormat(QApplication::translate("MainWindow", "%vmm", nullptr));

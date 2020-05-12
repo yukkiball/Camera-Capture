@@ -47,283 +47,107 @@
       <property name="title">
        <string/>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QTabWidget" name="tabWidget">
-         <property name="minimumSize">
-          <size>
-           <width>440</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font: 12pt &quot;Times New Roman&quot;;</string>
-         </property>
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <widget class="QWidget" name="parameter_tab">
-          <attribute name="title">
-           <string>Camera Parameters</string>
-          </attribute>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QTreeWidget" name="parameter_tree">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="indentation">
-              <number>5</number>
-             </property>
-             <attribute name="headerStretchLastSection">
-              <bool>true</bool>
-             </attribute>
-             <column>
-              <property name="text">
-               <string>Parameter</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Value</string>
-              </property>
-             </column>
-             <item>
-              <property name="text">
-               <string>Width</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Height</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Frame rate</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Exposure time</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Trigger mode</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Polarity</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>ImageProcess</string>
-              </property>
-              <item>
-               <property name="text">
-                <string>ROI.x</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>ROI.y</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>ROI.w</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>ROI.h</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Threshold</string>
-               </property>
-              </item>
-             </item>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="control_tab">
-          <attribute name="title">
-           <string>Weld Control</string>
-          </attribute>
-          <widget class="QtCharts::QChartView" name="graphicsView">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>100</y>
-             <width>411</width>
-             <height>221</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-          </widget>
-          <widget class="QGroupBox" name="groupBox">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>620</y>
-             <width>411</width>
-             <height>121</height>
-            </rect>
-           </property>
-           <property name="title">
-            <string>Suggest Parameters</string>
-           </property>
-           <widget class="QProgressBar" name="CurrentBar">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>80</y>
-              <width>118</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="minimum">
-             <number>100</number>
-            </property>
-            <property name="maximum">
-             <number>200</number>
-            </property>
-            <property name="value">
-             <number>150</number>
-            </property>
-            <property name="format">
-             <string>%vA</string>
-            </property>
-           </widget>
-           <widget class="QProgressBar" name="VoltageBar">
-            <property name="geometry">
-             <rect>
-              <x>240</x>
-              <y>80</y>
-              <width>118</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="maximum">
-             <number>25</number>
-            </property>
-            <property name="value">
-             <number>18</number>
-            </property>
-            <property name="format">
-             <string>%vV</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label">
-            <property name="geometry">
-             <rect>
-              <x>50</x>
-              <y>40</y>
-              <width>72</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Current</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_6">
-            <property name="geometry">
-             <rect>
-              <x>260</x>
-              <y>40</y>
-              <width>72</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Voltage</string>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="layoutWidget">
-           <property name="geometry">
-            <rect>
-             <x>-10</x>
-             <y>40</y>
-             <width>421</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <item>
-             <widget class="QLabel" name="label_4">
-              <property name="styleSheet">
-               <string notr="true">font: 12pt &quot;Times New Roman&quot;;</string>
-              </property>
-              <property name="text">
-               <string>Current</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLCDNumber" name="AI_Current">
-              <property name="smallDecimalPoint">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_3">
-              <property name="styleSheet">
-               <string notr="true">font: 12pt &quot;Times New Roman&quot;;</string>
-              </property>
-              <property name="text">
-               <string>Voltage</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLCDNumber" name="AI_Voltage">
-              <property name="smallDecimalPoint">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QtCharts::QChartView" name="graphicsView_3">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>360</y>
-             <width>411</width>
-             <height>221</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-          </widget>
-         </widget>
-        </widget>
+      <widget class="QTreeWidget" name="parameter_tree">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>20</y>
+         <width>421</width>
+         <height>760</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="indentation">
+        <number>5</number>
+       </property>
+       <attribute name="headerStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Parameter</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Value</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>Width</string>
+        </property>
        </item>
-      </layout>
+       <item>
+        <property name="text">
+         <string>Height</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Frame rate</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Exposure time</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Trigger mode</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Polarity</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ImageProcess</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>ROI.x</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ROI.y</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ROI.w</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ROI.h</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Threshold</string>
+         </property>
+        </item>
+       </item>
+      </widget>
      </widget>
     </item>
     <item row="0" column="1">
@@ -638,7 +462,6 @@ p, li { white-space: pre-wrap; }
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionBoard"/>
    <addaction name="actionConnect"/>
    <addaction name="actionDisconnect"/>
    <addaction name="separator"/>
@@ -699,6 +522,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
   <action name="actionRecord">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -746,24 +572,8 @@ p, li { white-space: pre-wrap; }
     <string>Calibrate</string>
    </property>
   </action>
-  <action name="actionBoard">
-   <property name="icon">
-    <iconset resource="../resources/rcc.qrc">
-     <normaloff>:/icons/circuit-board.png</normaloff>:/icons/circuit-board.png</iconset>
-   </property>
-   <property name="text">
-    <string>Board</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QtCharts::QChartView</class>
-   <extends>QGraphicsView</extends>
-   <header>qchartview.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../resources/rcc.qrc"/>
  </resources>
