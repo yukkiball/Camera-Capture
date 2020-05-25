@@ -414,8 +414,8 @@ void MainWindow::ReceiveAnalogData(QVector<double> analogData)
 
 void MainWindow::receiveWidth(double width)
 {
-	//ui->widthBar->setValue(width/ratio);
-	//ui->widthBar->setFormat(QString::fromLocal8Bit("Width：%1mm").arg(QString::number(width / ratio, 'f', 2)));
+	ui->widthBar->setValue(width/ratio);
+	ui->widthBar->setFormat(QString::fromLocal8Bit("Width：%1mm").arg(QString::number(width / ratio, 'f', 2)));
 	////电压建议
 	//if (width > 100 && width < 170)
 	//	ui->VoltageBar->setValue(19.5);
@@ -431,8 +431,8 @@ void MainWindow::receiveWidth(double width)
 
 void MainWindow::receiveLength(double length)
 {
-	//ui->lengthBar->setValue(length/ratio);
-	//ui->lengthBar->setFormat(QString::fromLocal8Bit("Length：%1mm").arg(QString::number(length / ratio, 'f', 2)));
+	ui->lengthBar->setValue(length/ratio);
+	ui->lengthBar->setFormat(QString::fromLocal8Bit("Length：%1mm").arg(QString::number(length / ratio, 'f', 2)));
 	////电流建议
 	//if (length > 100 && length < 240)
 	//	ui->CurrentBar->setValue(190);

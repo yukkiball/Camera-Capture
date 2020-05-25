@@ -21,7 +21,7 @@
 #include <memory>
 
 #include "processthread.h"
-#include "controlthread.h"
+//#include "controlthread.h"
 
 using namespace QtCharts;
 
@@ -53,19 +53,19 @@ private:
 
 	CameraThread* mpCameraThread = nullptr;
     ProcessThread* mpProcessThread = nullptr;
-	ControlThread* mpControlThread = nullptr;
+	//ControlThread* mpControlThread = nullptr;
 	CameraParameters cameraParams;
 
 	std::string g_SaveFolder;
 
-	QLineSeries* i_series;
-	QChart* i_chart;
-	QValueAxis* i_axisX;
-	QValueAxis* i_axisY;
-	QLineSeries* v_series;
-	QChart* v_chart;
-	QValueAxis* v_axisX;
-	QValueAxis* v_axisY;
+	//QLineSeries* i_series;
+	//QChart* i_chart;
+	//QValueAxis* i_axisX;
+	//QValueAxis* i_axisY;
+	//QLineSeries* v_series;
+	//QChart* v_chart;
+	//QValueAxis* v_axisX;
+	//QValueAxis* v_axisY;
 
 	ImageChannelPtr mpImageChannel;
 
